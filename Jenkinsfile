@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'oracle-slave-vm' }
         stages {
           stage('Git clone and environment setup') {
             steps{

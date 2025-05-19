@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        IMAGE_NAME = "myapp"
+        IMAGE_TAG = "latest"
+}
     agent { label 'oracle-slave-vm' }
         stages {
           stage('Git clone and environment setup') {
@@ -15,5 +19,12 @@ pipeline {
               }
             }
           }
+        }
+    stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                }
+            }
         }
 }

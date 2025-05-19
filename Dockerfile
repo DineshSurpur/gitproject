@@ -17,4 +17,4 @@ EXPOSE 80
 ENV NAME World
 
 # Run the application
-CMD ["python", "flaskhelloworld.py"]
+CMD ["python", "py-files/flaskhelloworld.py"]
